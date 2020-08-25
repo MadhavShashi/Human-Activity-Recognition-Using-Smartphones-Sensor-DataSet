@@ -127,10 +127,12 @@ OR in other words you can call, it is a **multiclass classification problem**, f
    *  LAYING as __6__
    
 ### 4. Data Directory
-![npic03](https://user-images.githubusercontent.com/49862149/91126397-7c7f1000-e6c1-11ea-94e9-c909b34df502.jpg)
+         *  ![npic03](https://user-images.githubusercontent.com/49862149/91126397-7c7f1000-e6c1-11ea-94e9-c909b34df502.jpg)
 
-
-
+-  ![#FF5733](https://via.placeholder.com/7x24/FF5733/000000?text=+) __Important Note__: When I am applying Machine learning algorithm, I use these experts created feature data. When we are applying Deep learning algorithm, I use RAW sensors DATA for predicting Human Activity.
+   ![npic4](https://user-images.githubusercontent.com/49862149/91137130-25326d00-e6cc-11ea-99a0-1cee55d314c0.jpg)
+ 
+-  The data is provided as a single zip file that is about **58 megabytes** in size. The direct link for this download is below: [**UCI HAR Dataset.zip**](https://archive.ics.uci.edu/ml/machine-learning-databases/00364/dataset_uci.zip)
    
    
 
