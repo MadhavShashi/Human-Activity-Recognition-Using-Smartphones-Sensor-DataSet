@@ -127,12 +127,94 @@ OR in other words you can call, it is a **multiclass classification problem**, f
    *  LAYING as __6__
    
 ### 4. Data Directory
-         *  ![npic03](https://user-images.githubusercontent.com/49862149/91126397-7c7f1000-e6c1-11ea-94e9-c909b34df502.jpg)
+   ![npic03](https://user-images.githubusercontent.com/49862149/91126397-7c7f1000-e6c1-11ea-94e9-c909b34df502.jpg)
 
--  ![#FF5733](https://via.placeholder.com/7x24/FF5733/000000?text=+) __Important Note__: When I am applying Machine learning algorithm, I use these experts created feature data. When we are applying Deep learning algorithm, I use RAW sensors DATA for predicting Human Activity.
+-  ![#FF5733](https://via.placeholder.com/8x24/FF5733/000000?text=+) __Important Note__: When I am applying Machine learning algorithm, I use these experts created feature data. When we are applying Deep learning algorithm, I use RAW sensors DATA for predicting Human Activity.
    ![npic4](https://user-images.githubusercontent.com/49862149/91137130-25326d00-e6cc-11ea-99a0-1cee55d314c0.jpg)
  
--  The data is provided as a single zip file that is about **58 megabytes** in size. The direct link for this download is below: [**UCI HAR Dataset.zip**](https://archive.ics.uci.edu/ml/machine-learning-databases/00364/dataset_uci.zip)
+-  ![#FF5733](https://via.placeholder.com/8x24/FF5733/000000?text=+) The data is provided as a single zip file that is about **58 megabytes** in size. The direct link for this download is: [**UCI HAR Dataset.zip**](https://archive.ics.uci.edu/ml/machine-learning-databases/00364/dataset_uci.zip)
+
+## Train and Test ratio
+30 subjects(*volunteers*) data is randomly split to __70%__ of the volunteers were taken as __training data__ and remaining __30%__ subjects’ recordings were taken for __test data__.  _e.g_. 21 subjects for train and nine for test.
+
+## Agenda
+
+### 1. Analyzing the Data (EDA)
+
+-  Some Analysis on Data Set below:
+-  Here, first I perform EDA on Expert generated Data set. We try to understand the data then create some machine Learning model on top of it.
+-  Start with loading the feature.txt file then train data and test data and analysis these data.
+
+-  Total Data point and feature count in train and test data:
+   ```python
+   train = pd.read_csv('UCI_HAR_dataset/csv_files/train.csv')
+   test = pd.read_csv('UCI_HAR_dataset/csv_files/test.csv')
+   print(train.shape, test.shape)
+   ```
+   ```
+   Output: (7352, 564) (2947, 564)
+   ```
+-  __investigate participants activity durations__: Since the dataset has been created in a scientific environment nearly equal preconditions for the participants can be assumed. Let us investigate their activity durations.
+   ```python
+   sns.set_style('whitegrid')
+   plt.rcParams['font.family'] = 'Dejavu Sans'
+   plt.figure(figsize=(16,8))
+   plt.title('Data provided by each user', fontsize=20)
+   sns.countplot(x='subject',hue='ActivityName', data = train)
+   plt.show()
+   ```
+   ![npic5](https://user-images.githubusercontent.com/49862149/91143901-dcc97e00-e6d0-11ea-9a7b-ae5df0b94e82.jpg)
+ 
+   *  Nearly all participants have more data for walking upstairs than downstairs. Assuming an equal number of up- and down-walks the participants need longer walking upstairs. 
+   *  We know that we have six class classification so, we have the big problem is to know or check is there any imbalanced in the data. And after plotting above graph we can say data is balanced.
+   *  We have got almost same number of reading from all the subject. 
+   
+-  __Next question is how many data points do I have per class level.__
+      ![npic6](https://user-images.githubusercontent.com/49862149/91144223-53ff1200-e6d1-11ea-9c18-06368d397d33.jpg)
+      *  Data is almost balanced.
+      *  Although there are fluctuations in the label counts, the labels are quite equally distributed.
+      *  Assuming the participants had to walk the same number of stairs upwards as well as downwards and knowing the smartphones had a constant sampling rate, there should be the same amount of datapoints for walking upstairs and downstairs.
+      *  Disregarding the possibility of flawed data, the participants seem to walk roughly 10% faster downwards.
+      
+-  Now time is to know __Static and Dynamic Activities of Human__:
+   *  In static activities (sit, stand, lie down) motion information will not be very useful.
+   *  In the dynamic activities (**Walking, WalkingUpstairs,WalkingDownstairs**) motion info will be significant.
+   *  Here we are using “__tBodyAccMagmean__” (*tBody acceleration magnitude feature mean value*) function to plot the graph for better understanding of *Static and Dynamic Activities of Human*.
+   ![npic7](https://user-images.githubusercontent.com/49862149/91144681-033be900-e6d2-11ea-93bb-33b5c4137407.jpg)
+   
+   *  We can see __tbodyAccMagmean__ feature separate very well the *Static and Dynamic Activities of Human*.
+   
+ - Now we plot the __Static and Dynamic Activities of Human on Box plot__ for understanding:
+      ![npic8](https://user-images.githubusercontent.com/49862149/91144988-69c10700-e6d2-11ea-927c-622ceb1d9693.jpg)
+   
+   *  If __tAccMean__ is __< -0.8__ then the Activities are either *Standing* or *Sitting* or *Laying*.
+   *  If __tAccMean__ is __> -0.6__ then the Activities are either *Walking* or *WalkingDownstairs* or *WalkingUpstairs*.
+   *  If __tAccMean > 0.0__ then the Activity is __WalkingDownstairs__.
+   *  We can classify __75%__ the Acitivity labels with some errors.
+ 
+-  Position of __GravityAccelerationComponants__ also matters:
+      
+      ![npic9](https://user-images.githubusercontent.com/49862149/91145629-64b08780-e6d3-11ea-8ebc-035929509c09.jpg)
+
+   *  If angleX, __gravityMean > 0__ then Activity is *Laying*.
+   *  We can classify all datapoints belonging to Laying activity with just a single if else statement.
+   
+-  Apply **t-sne** on the data to know __how much the Activities are Separable?__ We know that we have 561-Dimension expert engineered feature now apply TSNE on these features to see how much these features are helpful. 
+      ![npic10](https://user-images.githubusercontent.com/49862149/91146092-089a3300-e6d4-11ea-87b8-a325922ed856.jpg)
+      *  We can clearly see the *TSNE cluster*, All the Activity are clean separate **except "Standing" and "Sitting"**.
+      
+
+
+
+
+
+
+  
+
+
+
+
+
    
    
 
