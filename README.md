@@ -204,6 +204,32 @@ OR in other words you can call, it is a **multiclass classification problem**, f
       *  We can clearly see the *TSNE cluster*, All the Activity are clean separate **except "Standing" and "Sitting"**.
       
 
+### 2. Machine Learning Models:
+-  __Important Note as we discussed previous__: I used the __561 expert engineered features__ and we will *apply classical Machine Learning Model* on top of it.
+-  The Machine Learning Model which I applied are:
+#### a. Logistic Regression
+-  Logistic regression is a linear model for classification. In this model, the probabilities describing the possible outcomes of a single trial are modeled using a logistic function. The logistic function is a sigmoid function, which takes any real input and outputs a value between 0 and 1, and hence is ideal for classification.
+      
+   When a model learns the training data too closely, it fails to fit new data or predict unseen observations reliably. This condition is called overfitting and is countered, in one of many ways, with ridge (L2) regularization. Ridge regularization penalizes model predictors if they are too big, thus enforcing them to be small. This reduces model variance and avoids overfitting.
+
+-  __Hyperparameter Tuning__:
+Cross-validation is a good technique to tune model parameters like regularization factor and the tolerance for stopping criteria (for determining when to stop training). Here, a validation set is held out from the training data for each run (called fold) while the model is trained on the remaining training data and then evaluated on the validation set. This is repeated for the total number of folds (say five or 10) and the parameters from the fold with the best evaluation score are used as the optimum parameters for the model.
+
+####  b. Linear SVC
+-  The objective of a __Linear SVC__ (Support Vector Classifier) is to fit to the data you provide, returning a "best fit" hyperplane that divides, or categorizes, your data. From there, after getting the hyperplane, you can then feed some features to your classifier to see what the "predicted" class is.
+
+####  c. Kernal SVM
+-  __SVM__ algorithms use a set of mathematical functions that are defined as the __kernel__. The function of __kernel__ is to take data as input and transform it into the required form. Different SVM algorithms use different types of kernel functions. These functions can be different types.
+####  d.	Decision Tree
+-  Decision trees is a hierarchical model also known as classiﬁcation and regression trees. They have the property of predicting response from data. The attributes of the decision trees are mapped into nodes. The edges of the tree represent the possible output values. Each branch of the tree represents a classiﬁcation rule, from the root to the leaf node.
+-  This method has been used for several tasks in the ﬁeld of pattern recognition and machine learning as a predictive model. The main goal is to predict the next value given several input variable.
+####  e.	Random Forest Classifier
+-  Random Forest is an outfit of unpruned demand or descends like bootstrapping algorithm with various decision trees. Each tree depends upon the estimations of the vector picked unpredictably and independently. Random Forest reliably gives an immense improvement than the single tree classifier. Each tree is fabricated using the algorithm.
+####  f.	Gradient Boosted
+-  Gradient boosting is an AI method for relapse and order issues, which creates an expectation model as a group of powerless forecast models, normally choice trees. The goal of any directed learning algorithm is to characterize a misfortune work and limit it. Gradient boosting machines are in light of a ensemble of choice trees where numerous weak learner trees are utilized in mix as a group to give preferred forecasts over singular trees. Boost has unrivalled regularization and better treatment of missing qualities and also much improved proficiency.
+-  ![#FF5733](https://via.placeholder.com/8x24/FF5733/000000?text=+) __NOTE__: I am trying to run the "GradientBoostingClassifier()" with "GridSearchCV", but my system is not supported this pice of code.
+
+
 
 
 
