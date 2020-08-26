@@ -229,24 +229,78 @@ Cross-validation is a good technique to tune model parameters like regularizatio
 -  Gradient boosting is an AI method for relapse and order issues, which creates an expectation model as a group of powerless forecast models, normally choice trees. The goal of any directed learning algorithm is to characterize a misfortune work and limit it. Gradient boosting machines are in light of a ensemble of choice trees where numerous weak learner trees are utilized in mix as a group to give preferred forecasts over singular trees. Boost has unrivalled regularization and better treatment of missing qualities and also much improved proficiency.
 -  ![#FF5733](https://via.placeholder.com/8x24/FF5733/000000?text=+) __NOTE__: I am trying to run the "GradientBoostingClassifier()" with "GridSearchCV", but my system is not supported this pice of code.
 
+### 3. Deep Learning Models:
+-  Now, I created __LSTM based Deep learning Model__ on the __Raw time series Data__.
+-  HAR is one of the time series classification problem. In this project various machine learning and deep learning models have been worked out to get the best final result. In the same sequence, we can use LSTM (long short-term memory) model of the Recurrent Neural Network (RNN) to recognize various activities of humans like standing, climbing upstairs and downstairs etc.
+-  __LSTM model__ is a type of recurrent neural network capable of learning order dependence in sequence prediction problems. This model is used as this helps in remembering values over arbitrary intervals.
+-  I applied LSTM as follows: 
+   *  __1-Layer of LSTM__
+   *  __2-Layer of LSTM with more hyperparameter tuning__
+   
+###   4.	Results & Conclusion
+-  ![#86b300](https://via.placeholder.com/5x27/86b300/000000?text=+) For below table we are comparing all the **ML model Accuracy score**.
+
+| Model Name | Features | Hyperparameter Tuning | Accuracy Score |
+| ---------- | -------- | ------ | -------- |
+| Logistic Regression | `Expert generated Feature` | Done | **95.83%** |
+| Linear SVC | `Expert generated Feature` | Done | **96.47%** |
+| RBF SVM classifier | `Expert generated Feature` | Done | **96.27%** |
+| Decision Tree | `Expert generated Feature` | Done | **86.46%** |
+| Random Forest | `Expert generated Feature` | Done | **92.06%** |
+
+-  We can choose __Linear SVC__ or __rbf SVM classifier__ or __Logistic Regression__ as our best model while applying ML Classical Model.
+
+-  ![#86b300](https://via.placeholder.com/5x27/86b300/000000?text=+) For Below table we are comparing **Deep Learning LSTM Model**.
+
+| Model Name | Features | Hyperparameter Tuning | crossentropy | Accuracy Value |
+|---------- | ---------- | -------- | ------ | -------- |
+| LSTM With 1_Layer(neurons:32) | `Raw time series Data` | Done | **0.47** | **0.90%** |
+| LSTM With 2_Layer(neurons:48, neurons:32) | `Raw time series Data` | Done | **0.39** | **0.90%** |
+| LSTM With 2_Layer(neurons:64, neurons:48) | `Raw time series Data` | Done | **0.27** | **0.91%** |
+
+-  When we talking about LSTM Model, here with LSTM we are using simple RAW data(in ML model we are using Single engineered data made by an expert), but we can see the result without any FE data, LSTM perform very-very well and got highest 91% accuracy with 2_layer LSTM with hyperparameter Tuning and also when we are increasing LSTM layer and Hyperparameter Tuning the cross-entropy value is decreasing and Accuracy is increasing.
+
+## Technical Aspect
+This project is divided into four part:
+   1.	I have done EDA in __first part__.
+   2.	Created Classical Machine Learning Prediction Models on top of expert generated features in __second part__.
+   3.	Created __LSTM based Deep learning Model__ on top of __Raw time series Data__ in __third part__.
+   4.	Machine Learning and Deep Learning Model Comparison and conclusion in __fourth part__.
 
 
+## Installation
+The Code is written in Python 3.7. If you don't have Python installed you can find it [**here**](https://www.python.org/downloads/ "Install Python 3
+.7"). If you are using a lower version of Python you can upgrade using the pip package, ensuring you have the latest version of pip.
 
+- all the code for the article is available with this __REPOSITORIES__..
 
-
-
+  *How To*
   
+    * Install Required Libraries
+    
+      ```python
+      pip3 install pandas
+      pip3 install numpy
+      pip3 install scikit-learn
+      pip3 install matplotlib
+      pip3 install keras
+      ```
 
+## Quick overview of the dataset
 
-
-
-
-   
-   
-
-
-
-
-
-
+-  Accelerometer and Gyroscope readings are taken from 30 volunteers (referred as subjects) while performing the following 6 Activities.
+   1.	Walking
+   2.	WalkingUpstairs
+   3.	WalkingDownstairs
+   4.	Standing
+   5.	Sitting
+   6.	Lying.
+-  Readings are divided into a window of 2.56 seconds with 50% overlapping.
+-  Accelerometer readings are divided into gravity acceleration and body acceleration readings, which has x,y and z components each.
+-  Gyroscope readings are the measure of angular velocities which has x,y and z components.
+-  Jerk signals are calculated for BodyAcceleration readings.
+-  Fourier Transforms are made on the above time readings to obtain frequency readings.
+-  Now, on all the base signal readings., mean, max, mad, sma, arcoefficient, engerybands,entropy etc., are calculated for each window.
+-  We get a feature vector of 561 features and these features are given in the dataset.
+-  Each window of readings is a datapoint of 561 features.
 
