@@ -1,5 +1,36 @@
 ![Human Activity Recognition Using Smartphones Sensor DataSet](https://user-images.githubusercontent.com/49862149/91008443-082e6900-e5fc-11ea-9099-caa8d9a8d071.jpg)
 
+## Table of Content
+
+-  [**OVERVIEW**]
+-  [**SOURCES/USEFUL LINKS**]
+-  [**PROBLEM STATEMENT**]
+-  [**SOLUTION**]
+-  [**WHICH TYPE OF ML PROBLEM IS THIS?**]
+-  [**WHAT IS THE BEST PERFORMANCE METRIC FOR THIS PROBLEM?**]
+-  [**BUSINESS OBJECTIVES AND CONSTRAINTS**]
+-  [**DATA OVERVIEW**]
+   *  [1.	HOW DATA WAS RECORDED]
+   *  [2.	HOW IS THE DATA PREPROCESSED?]
+   *  [3. Y_LABELS(ENCODED)]
+   *  [4. DATA DIRECTORY]
+-  [**TRAIN AND TEST RATIO**]
+-  [**AGENDA**]
+   *  [1.	ANALYZING THE DATA (EDA)]
+   *  [2.	MACHINE LEARNING MODELS:]
+      *  [*a.	Logistic Regression*]
+      *  [*b.	Linear SVC*]
+      *  [*c.	Kernal SVM*]
+      *  [*d.	Decision Tree*]
+      *  [*e.	Random Forest Classifier*]
+      *  [*f.	Gradient Boosted*]
+   *  [3.	DEEP LEARNING MODELS:]
+   *  [4.	RESULTS & CONCLUSION]
+-  [**TECHNICAL ASPECT**]
+-  [**INSTALLATION**]
+-  [**QUICK OVERVIEW OF THE DATASET**]
+
+
 ## Overview
 Smart phones have become a most useful tool in our daily life for communication with advanced technology provided intelligent assistance to the user in their everyday activities. The portable working framework with computing ability and interconnectivity, application programming interfaces for executing outsiders’ tools and applications, mobile phones have highlights such as cameras, GPS, web browsers so on., and implanted sensors such as **accelerometers** and **gyroscope** which permits the improvement of applications in view of client’s specific area, movement and context.
 
